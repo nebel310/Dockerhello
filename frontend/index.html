@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="hello-text"></h1>
+    </div>
+
+    <script>
+        fetch('http://localhost:5001/api/hello')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('hello-text').textContent = text;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+version: '3.9'
+
+networks:
+  hello-world-network:
+    driver: bridge
+
+services:
+  backend:
+    build: ./backend
+    container_name: flask_app
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./backend:/app
+    networks:
+      - hello-world-network
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    networks:
+      - hello-world-network
